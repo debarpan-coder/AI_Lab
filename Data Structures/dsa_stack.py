@@ -1,14 +1,12 @@
-import numpy as np
-class Stack:
-    __size = None
-    __stack_list = np.empty(shape=[0])
-    __top=-1
+class MyStack:
+    
     def __init__(self,size) -> None:
         self.__size=size
-        self.__stack_list=np.empty(shape=[size])
+        self.__stack_list=[None]*self.__size
+        self.__top=-1
     
     def push(self,data):
-        """perform push operation on stack 
+        """It perform push operation 
         
         Returns:
         False: if stack is full
@@ -19,6 +17,7 @@ class Stack:
             self.__top=self.__top+1
             self.__stack_list[self.__top]=data
             return True
+
     def pop(self):
         """It perform the pop operation.
 
@@ -33,10 +32,16 @@ class Stack:
             return self.__stack_list[self.__top+1]
         
     def getTop(self):
+        """To get the top value
+
+        Returns:
+            Integer: top position
+        """
         return self.__top
     
+    
 if __name__=='__main__':
-    stack = Stack(10)
+    stack = MyStack(10)
     print(stack.pop())
     print(stack.push(5))
     print(stack.push(2))
